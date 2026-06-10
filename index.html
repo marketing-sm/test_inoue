@@ -318,7 +318,21 @@
 
     document.getElementById('result').style.display = 'block';
     document.getElementById('result').scrollIntoView({ behavior:'smooth', block:'start' });
+    history.pushState({ diagnosed: true }, '', '/completed');
   });
+
+  // ブラウザの戻るボタンで入力画面に戻る
+  window.addEventListener('popstate', (e) => {
+    if (!e.state || !e.state.diagnosed) {
+      document.getElementById('result').style.display = 'none';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+  // /completed にアクセスした場合、入力フォームを表示したまま待機
+  if (window.location.pathname === '/completed') {
+    history.replaceState({ diagnosed: true }, '', '/completed');
+  }
 </script>
 </body>
 </html>
