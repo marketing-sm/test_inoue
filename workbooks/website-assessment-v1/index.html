@@ -459,16 +459,16 @@ footer{
    色の言語：青=整っている／コーラル=伸びしろ・詰まり／グレー=中立（アンバーはページ装飾専用）
    線の言語：実線=実体（壁・枠・床）／点線=見えていないもの（視界の外・盲点） */
 .quad-wrap svg text{font-family:'Noto Sans JP',sans-serif}
-.quad-def{font-size:12px;color:var(--gray);line-height:1.8;margin:-4px auto 16px;max-width:440px;text-align:center}
+.quad-def{font-size:12px;color:var(--gray);line-height:1.8;margin:-4px auto 16px;max-width:440px;text-align:left}
 .quad-def b{color:var(--navy)}
-.quad-list{list-style:none;max-width:440px;margin:0 auto 14px;padding:0;text-align:center}
-.quad-list li{display:flex;align-items:baseline;justify-content:center;gap:10px;padding:8px 14px;border-radius:10px;background:#F8F9FC;font-size:13px}
+.quad-list{list-style:none;max-width:440px;margin:0 auto 14px;padding:0;text-align:left}
+.quad-list li{display:flex;align-items:baseline;gap:10px;padding:8px 14px;border-radius:10px;background:#F8F9FC;font-size:13px}
 .quad-list li + li{margin-top:7px}
 .quad-list li::before{content:"";width:8px;height:8px;border-radius:2px;flex-shrink:0;align-self:center}
 .quad-list li:first-child::before{background:#9DBDF4}
 .quad-list li:last-child::before{background:var(--coral)}
 .quad-list li b{color:var(--navy);font-weight:900}
-.quad-list li span{color:var(--gray);font-size:12px}
+.quad-list li span{color:var(--gray);font-size:12px;margin-left:auto}
 .quad-foot{font-size:10.5px;color:var(--gray);text-align:center;max-width:440px;margin:14px auto 4px}
 .quad-wrap .axis{fill:none;stroke:#6B7280;stroke-width:2.5;stroke-linecap:round}
 .quad-wrap .edge{fill:none;stroke:#C9CFDA;stroke-width:1.5}
@@ -503,8 +503,8 @@ details[open] .rx-chev{transform:rotate(180deg)}
 .rx-body-wrap{padding:0 22px 18px}
 .quad-wrap .result-weak{background:#FCEAE5;color:#B23B28}
 /* 凡例：チップを図と共通化 */
-.lever-legend{margin-top:14px;text-align:center}
-.lv-row{display:flex;gap:10px;align-items:flex-start;justify-content:center;font-size:12.5px;line-height:1.75;color:#33415C;padding:5px 0}
+.lever-legend{margin-top:14px;text-align:left;padding-left:80px}
+.lv-row{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.75;color:#33415C;padding:5px 0}
 .lv-row + .lv-row{border-top:1px solid var(--gray-light)}
 .result-note{
 margin:14px 0 18px;
@@ -518,7 +518,7 @@ color:var(--gray);
 }
 .result-note p{margin:0}
 .result-note p + p{margin-top:6px}
-.lv-chip{flex-shrink:0;font-size:11px;font-weight:900;color:var(--white);background:var(--navy);padding:2px 11px;border-radius:999px;margin-top:2px}
+.lv-chip{flex-shrink:0;width:84px;box-sizing:border-box;text-align:center;font-size:11px;font-weight:900;color:var(--white);background:var(--navy);padding:2px 4px;border-radius:999px;margin-top:2px}
 /* ===== rx card: header + badges ===== */
 .rx-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
 .rx-step-no{flex-shrink:0;font-size:12px;font-weight:900;color:var(--white);background:var(--navy);padding:4px 10px;border-radius:6px}
@@ -670,6 +670,7 @@ color:var(--gray);
           <text x="223" y="64" text-anchor="middle" class="tx-s">情報収集中の訪問者</text>
           <g>
             <path class="lever" d="M344 42 L366 20" marker-end="url(#mkn)"/>
+            <path class="lever" d="M36 246 L14 268" marker-end="url(#mkn)"/>
             <rect class="lv-pill" x="148" y="2" width="84" height="19" rx="9.5"/>
             <text x="190" y="15.5" text-anchor="middle" class="lv-pill-tx">A 流入母数</text>
           </g>
