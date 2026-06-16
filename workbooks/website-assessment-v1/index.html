@@ -1109,6 +1109,8 @@ function renderResult(key, opts){
   document.getElementById("typeName").textContent = t.name;
   document.getElementById("typeDesc").textContent = t.desc;
       document.getElementById("noteTypeName").textContent = t.name;
+  // 注意書きは「別タイプの結果に切替えたとき」だけ表示（初回の本来の結果では非表示）
+  document.querySelector(".result-note").style.display = opts.showNote ? "" : "none";
   document.getElementById("mapNote").textContent  = t.mapNote;
 
   let clogCat = null;
@@ -1219,7 +1221,7 @@ function showSample(){
 document.querySelectorAll(".ts-card").forEach(btn=>{
   btn.addEventListener("click",()=>{
     document.querySelectorAll(".sample-cut").forEach(e=>e.remove());
-    renderResult(btn.dataset.type, {sample:currentSample});
+    renderResult(btn.dataset.type, {sample:currentSample, showNote:true});
     window.scrollTo({top:0,behavior:"smooth"});
   });
 });
