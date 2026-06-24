@@ -73,13 +73,13 @@
     </a>
     <div class="navlinks">
       <a href="/">ホーム</a>
-      <a href="/blog.html">ブログ</a>
+      <a href="/blog">ブログ</a>
     </div>
   </div>
 </nav>
 
 <article class="wrap">
-  <a class="back" href="/blog.html">← ブログ一覧へ</a>
+  <a class="back" href="/blog">← ブログ一覧へ</a>
   <div id="post"></div>
   <div id="state" class="state">読み込み中…</div>
 </article>
@@ -112,8 +112,11 @@
   }
 
   function getId(){
-    const p = new URLSearchParams(location.search);
-    return p.get("id");
+    // クリーンURL（/blog/コンテンツID）からIDを取得。?id= も後方互換で許可
+    const q = new URLSearchParams(location.search).get("id");
+    if(q) return q;
+    const m = location.pathname.match(/\/blog\/([^\/]+)\/?$/);
+    return m ? decodeURIComponent(m[1]) : null;
   }
 
   async function load(){
